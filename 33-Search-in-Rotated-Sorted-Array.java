@@ -6,18 +6,10 @@ class Solution {
             if(nums[mid]==target){
                 return mid;
             }
-              if (nums[l] <= nums[mid]) {
-                if (nums[l] <= target && target < nums[mid])
-                    h= mid - 1;
-                else
-                    l = mid + 1;
-            }
-            else {
-                if (nums[mid] < target && target <= nums[h])
-                    l = mid + 1;
-                else
-                    h = mid - 1;
-            }
+            else if(nums[mid]>=nums[0] && target<nums[0]) l=mid+1;
+            else if(nums[mid]<nums[0] && target >=nums[0]) h=mid-1;
+            else if(nums[mid]<target) l=mid+1;
+            else h=mid-1;
         }
         return -1;
     }
